@@ -57,7 +57,7 @@ module.exports = function (io) {
       socket.broadcast.to(socket.forum).emit("info msg", "CHATSERVER", `${socket.uname} has left this room`);
       // update socket session room title
       socket.forum = newforum;
-      // socket.broadcast.to(newforum).emit("info msg", "CHATSERVER", `${socket.uname} has joined this room`);
+      socket.broadcast.to(newforum).emit("info msg", "CHATSERVER", `${socket.uname} has joined this room`);
     });
 
 
@@ -72,7 +72,7 @@ module.exports = function (io) {
       socket.leave(socket.forum);
 
       // remove the username from global usernames list
-      delete usernames[socket.uname];
+      // delete usernames[socket.uname];
     });
   });
 }
