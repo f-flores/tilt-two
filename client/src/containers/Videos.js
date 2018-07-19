@@ -41,7 +41,7 @@ class Videos extends Component {
       // part = "snippet is required for youtube" 
       part: "snippet" ,
       safeSearch: "moderate",
-      maxResults: 15,
+      maxResults: 9,
       relevanceLanguage: "en",
       // --
       // select menu option default
