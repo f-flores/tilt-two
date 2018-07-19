@@ -26,4 +26,4 @@ export const DefaultChatForum = "Tilt General";
 export const DefaultVideoQuery = "online game cheat";
 
 // Heroku app page
-export const HerokuLiveSite = "https://polar-shore-76735.herokuapp.com"
+export const HerokuLiveSite = "https://intense-brushlands-62905.herokuapp.com"
