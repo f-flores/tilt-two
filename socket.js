@@ -5,7 +5,7 @@ module.exports = function (io) {
   let chatforums = ["Tilt General","League of Legends", "Overwatch", "Fortnite", "Destiny", "Anthem",
                    "PUBG", "Call of Duty", "World of Warcraft" ];
 
-  // usernames 
+  // usernames
   let usernames = [];
 
   io.on("connection", function (socket) {
@@ -16,7 +16,6 @@ module.exports = function (io) {
 
     // when client emits "add user", this function listens and executes
     socket.on("add user", function(data){
-      // console.log(`socket.js in add user == data: ${data}`);
       const defaultRoom = chatforums[0];
       // store the uname in the socket session for this client
       socket.uname = data;
@@ -37,8 +36,6 @@ module.exports = function (io) {
       // client executes "chat msg" with one parameter that contains an object
       // the following two will emit to all the sockets connected to socket.forum
       io.sockets.in(socket.forum).emit("chat msg", data);
-      // console.log(`socket.js 'send chat' socket.forum: ${socket.forum}
-      // data uname: ${data.uname}, msg: ${data.msg}, post: ${data.post}`);
       socket.to(socket.forum).emit("chat msg", data);
     });
 
@@ -46,8 +43,9 @@ module.exports = function (io) {
     socket.on("switch forum", function(newforum, uname){
       socket.uname = uname;
       console.log(`in switch forum socket -- socket.forum: ${socket.forum}
-      socket.uname: ${socket.uname}
-      newforum: ${newforum}`);
+                  socket.uname: ${socket.uname}
+                  newforum: ${newforum}`
+                  );
       // leave current chat room
       socket.leave(socket.forum);
       socket.join(newforum);

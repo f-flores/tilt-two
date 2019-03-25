@@ -118,13 +118,9 @@ class Videos extends Component {
     const list1 = this.state.gameList;
     const list2 = this.state.cheatList;
 
-    for (let elem1 of list1) {
-      comboList.push({itemId: elem1._id, nameTerm: `${elem1.gameName} online cheat`});
-    }
+    for (let elem1 of list1) comboList.push({itemId: elem1._id, nameTerm: `${elem1.gameName} online cheat`});
 
-    for (let elem2 of list2) {
-      comboList.push({itemId: elem2._id, nameTerm: elem2.cheatName});
-    }
+    for (let elem2 of list2) comboList.push({itemId: elem2._id, nameTerm: elem2.cheatName});
 
     // add user submitted videos to list
     comboList.push({itemId: UserSubmitted, nameTerm: UserSubmitted});
@@ -405,8 +401,7 @@ class Videos extends Component {
         </div>
 
       
-            {/* Video results container */}
-            
+            {/* Video results container */}            
               <div className="row video-result justify-content-center no-gutters mb-0">
                 {
                   this.state.submittedQuery === UserSubmitted
